@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PerfectPDF Converter</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Převod obrázků do PDF</h1>
+      <p>Převod fotografií do PDF ve skutečné velikosti bez okrajů</p>
+    </header>
+
+    <!-- Krok 1: Výběr souborů -->
+    <section id="step1" class="step active">
+      <h2>1. Vyberte obrázky</h2>
+      <div class="upload-container">
+        <!-- Důležité: správná implementace file input pro mobilní zařízení -->
+        <input type="file" id="fileInput" accept="image/*,.svg" multiple class="file-input">
+        <label for="fileInput" class="upload-btn">
+          <span>📁 Vybrat soubory</span>
+        </label>
+      </div>
+      <div id="fileList" class="file-list"></div>
+      <button id="convertBtn" class="btn convert-btn" disabled>Převést do PDF</button>
+    </section>
+
+    <!-- Krok 2: Průběh -->
+    <section id="step2" class="step">
+      <h2>Převádím...</h2>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <p id="progressText" class="progress-text">Zpracovávám obrázky...</p>
+      </div>
+    </section>
+
+    <!-- Krok 3: Stažení -->
+    <section id="step3" class="step">
+      <h2>Stažení dokončeno</h2>
+      <div id="downloadLinks" class="download-links"></div>
+      <button id="resetBtn" class="btn reset-btn">Nový převod</button>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
